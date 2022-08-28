@@ -10,7 +10,7 @@ const getLocaleLanguge = () => {
 
 const lang = getLocaleLanguge();
 const languages = []
-const languagesDiv = document.querySelector('.languages').getElementsByTagName('a');
+const languagesDiv = document.querySelector('.languages') ? document.querySelector('.languages').getElementsByTagName('a') : [];
 const page = window.location.pathname;
 
 for (let i = 0; i < languagesDiv.length; i++) {

@@ -6,16 +6,44 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         {% if config.meta.description %}<meta name="description" content="{{ config.meta.description }}">{% endif %}
         <title>{% if page.title %}{{ page.title }} - {% endif %}{{ config.site_name }}</title>
-        <link rel="stylesheet" href="https://latex.now.sh/style.css">
+        <link rel="stylesheet" href="{{ 'css/style.css'|url }}">
     </head>
     <body>
-        <!-- Display all languages -->
-        <div class="languages">
-            {% for language in config.languages %}
-                <a data-lang="{{ language.lang }}" href="#">{{ language.lang_name }}</a>
-            {% endfor %}
+        <div class="main">
+            <div class="sidebar toc">
+                <h2>Contents</h2>
+                <ol>
+                    {%- for parent in page.toc %}
+                        <li class="{% if parent.active %}active{% endif %}"><a href="{{ parent.url }}">{{ parent.title }}</a>
+                        {%- if parent.children %}
+                            <ol>
+                                {%- for child in parent.children %}
+                                    <li class="{% if child.active %}active{% endif %}"><a href="{{ child.url }}">{{ child.title }}</a>
+                                    {%- if child.children %}
+                                        <ol>
+                                            {%- for grandchild in child.children %}
+                                                <li class="{% if grandchild.active %}active{% endif %}"><a href="{{ grandchild.url }}">{{ grandchild.title }}</a></li>
+                                            {%- endfor %}
+                                        </ol>
+                                    {%- endif %}</li>
+                                {%- endfor %}
+                            </ol>
+                        {%- endif %}</li>
+                    {%- endfor %}
+                </ol>
+            </div>
+            <div class="content">
+                {{ page.content }}
+            </div>
         </div>
-        {{ page.content }}
+        {% if page and not page.is_homepage %}
+            <div class="languages">
+                <p><em>View this page in:</em>
+                {% for language in config.languages %}
+                    <a data-lang="{{ language.lang }}" href="#">{{ language.lang_name }}</a>
+                {% endfor %}</p>
+            </div>
+        {% endif %}
         <script src="{{ 'js/page-loader.js'|url }}"></script>
     </body>
 <html>

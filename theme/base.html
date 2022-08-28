@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="{{ config.meta.lang }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% if config.meta.description %}<meta name="description" content="{{ config.meta.description }}">{% endif %}
+        <title>{% if page.title %}{{ page.title }} - {% endif %}{{ config.site_name }}</title>
+        <link rel="stylesheet" href="https://latex.now.sh/style.css">
+    </head>
+    <body>
+        <!-- Display all languages -->
+        <div class="languages">
+            {% for language in config.languages %}
+                <a data-lang="{{ language.lang }}" href="#">{{ language.lang_name }}</a>
+            {% endfor %}
+        </div>
+        {{ page.content }}
+        <script src="/js/page-loader.js"></script>
+    </body>
+<html>

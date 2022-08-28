@@ -1,1 +1,18 @@
 site_name: alGolang Documentation
+theme:
+  name: null
+  custom_dir: 'theme'
+meta:
+  lang: 'en'
+languages:
+  - lang: 'en'
+    lang_name: 'English'
+  - lang: 'ru'
+    lang_name: 'Russian'
+  - lang: 'es'
+    lang_name: 'Spanish'
+  - lang: 'fr'
+    lang_name: 'French'
+
+
+

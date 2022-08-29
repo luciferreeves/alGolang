@@ -8,6 +8,12 @@ meta:
 languages:
   - lang: 'en'
     lang_name: 'English'
+  - lang: 'ru'
+    lang_name: 'Russian'
+  - lang: 'es'
+    lang_name: 'Spanish'
+  - lang: 'fr'
+    lang_name: 'French'
 navigation:
   - title: 'Home'
     url: '/<l>/'

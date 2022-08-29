@@ -8,6 +8,15 @@ const getLocaleLanguge = () => {
     }
 }
 
+const isLocaleLoaded = (cl) => {
+  for (const language of languages) {
+    if (cl.includes(language)) {
+      return true;
+    }
+  }
+  return false;
+}
+
 const lang = getLocaleLanguge();
 const languages = []
 const languagesDiv = document.querySelector('.languages') ? document.querySelector('.languages').getElementsByTagName('a') : [];
@@ -16,8 +25,6 @@ const page = window.location.pathname;
 for (let i = 0; i < languagesDiv.length; i++) {
     const language = languagesDiv[i].getAttribute('data-lang');
     languages.push(language);
-    let href = page.replace(page.split('/')[2], language);
-    languagesDiv[i].setAttribute('href', href);
 }
 
 const a = document.querySelectorAll('a');
@@ -25,19 +32,23 @@ for (let i = 0; i < a.length; i++) {
     let split = page.split('/');
     // Remove empty strings from the array.
     split = split.filter(Boolean);
-    // Remove the language from the array.
-    split.pop();
-    const href = a[i].getAttribute('href')
-    a[i].setAttribute('href', href.replace('/<l>', '/' + split + '/' + lang));
-}
-
-const isLocaleLoaded = (cl) => {
-  for (const language of languages) {
-    if (cl.includes(language)) {
-      return true;
+    if (a[i].getAttribute('data-lang')) {
+        split.shift();
+        console.log(split);
+        const currentLanguage = a[i].getAttribute('data-lang');
+        const replacedLink = ('/' + currentLanguage + '/' + split.join('/') + '/').replace(/\/\//g, '/');
+        a[i].setAttribute('href', replacedLink);
+    } else {
+      const href = a[i].getAttribute('href');
+      let baseLink = "/";
+      for (const element in split) {
+        baseLink += split[element] + "/";
+        if (languages.includes(split[element])) {
+          break;
+        }
+      }
+      a[i].setAttribute('href',href.replace('/<l>/', baseLink));
     }
-  }
-  return false;
 }
 
 if (!isLocaleLoaded(page)) {

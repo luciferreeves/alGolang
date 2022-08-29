@@ -1,0 +1,58 @@
+.main {
+    display: flex;
+    flex-direction: row;
+}
+
+.sidebar {
+    padding: 20px;
+    border-right: 1px solid #ccc;
+}
+
+.content {
+    padding: 20px;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+nav > ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+nav > ul > li {
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.search-box {
+    position: absolute;
+    z-index: 9999;
+    /* position in center of page */
+    top: 200px;
+    left: 50%;
+    top: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+    width: 70vw;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    /* add a shadow */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.5em;
+}

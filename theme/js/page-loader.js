@@ -33,10 +33,15 @@ for (let i = 0; i < a.length; i++) {
     // Remove empty strings from the array.
     split = split.filter(Boolean);
     if (a[i].getAttribute('data-lang')) {
-        split.pop();
         const currentLanguage = a[i].getAttribute('data-lang');
-        const replacedLink = ('/' + split.join('/') + '/' + currentLanguage + '/').replace(/\/\//g, '/');
-        a[i].setAttribute('href', replacedLink);
+        let baseLink = "";
+        for (const element in split) {
+            baseLink += "/" + split[element];
+            if (languages.includes(split[element])) {
+                baseLink = baseLink.replace(split[element], currentLanguage);
+            }
+        }
+        a[i].href = baseLink;
     } else {
       const href = a[i].getAttribute('href');
       let baseLink = "/";

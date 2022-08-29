@@ -3,6 +3,9 @@ site_uri: '/<l>/'
 theme:
   name: null
   custom_dir: 'theme'
+  static_templates:
+    - 404.html
+    - search.html
 meta:
   lang: 'en'
 languages:
@@ -23,4 +26,6 @@ navigation:
     url: '/<l>/algorithms/'
   - title: 'Data Structures'
     url: '/<l>/data-structures/'
+plugins:
+    - search
 

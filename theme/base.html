@@ -18,6 +18,11 @@
                     {% for nav_item in config.navigation %}
                         <li><a href="{{ nav_item.url }}">{{ nav_item.title }}</a></li>
                     {% endfor %}
+                    <!-- Search Bar -->
+                    <!-- <form action="search.html" method="get">
+                        <input type="text" name="q" placeholder="Search" id="mkdocs-search-query" autocomplete="off">
+                        <input type="submit" value="Search">
+                    </form> -->
                 </ul>
             </nav>
             {% endif %}

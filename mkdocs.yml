@@ -1,4 +1,5 @@
 site_name: alGolang Documentation
+site_uri: '/<l>/'
 theme:
   name: null
   custom_dir: 'theme'
@@ -7,12 +8,13 @@ meta:
 languages:
   - lang: 'en'
     lang_name: 'English'
-  - lang: 'ru'
-    lang_name: 'Russian'
-  - lang: 'es'
-    lang_name: 'Spanish'
-  - lang: 'fr'
-    lang_name: 'French'
-
-
+navigation:
+  - title: 'Home'
+    url: '/<l>/'
+  - title: 'About'
+    url: '/<l>/about/'
+  - title: 'Algorithms'
+    url: '/<l>/algorithms/'
+  - title: 'Data Structures'
+    url: '/<l>/data-structures/'
 

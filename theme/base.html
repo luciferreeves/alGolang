@@ -9,7 +9,20 @@
         <link rel="stylesheet" href="{{ 'css/style.css'|url }}">
     </head>
     <body>
+        {%- block site_nav %}
+            {%- if config.navigation|length>1 %}
+            <nav>
+                <ul>
+                    <h1 class="title" style="color: black; margin: -5px 40px 0px 0px;"><a style="color: black; text-decoration: none;" href="{{config.site_uri}}">{{config.site_name}}</a></h1>
+                    {% for nav_item in config.navigation %}
+                        <li><a href="{{ nav_item.url }}">{{ nav_item.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </nav>
+            {% endif %}
+        {%- endblock %}
         <div class="main">
+            {% if page and not page.is_homepage %}
             <div class="sidebar toc">
                 <h2>Contents</h2>
                 <ol>
@@ -32,6 +45,7 @@
                     {%- endfor %}
                 </ol>
             </div>
+            {% endif %}
             <div class="content">
                 {{ page.content }}
             </div>

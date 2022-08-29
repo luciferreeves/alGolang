@@ -20,6 +20,14 @@ for (let i = 0; i < languagesDiv.length; i++) {
     languagesDiv[i].setAttribute('href', href);
 }
 
+const a = document.querySelectorAll('a');
+for (let i = 0; i < a.length; i++) {
+    const split = page.split('/');
+    const root = split[0] + '/' + split[1] + '/' + split[2];
+    const href = a[i].getAttribute('href')
+    a[i].setAttribute('href', href.replace('/<l>', root));
+}
+
 const isLocaleLoaded = (cl) => {
   for (const language of languages) {
     if (cl.includes(language)) {

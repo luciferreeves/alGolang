@@ -35,7 +35,7 @@ for (let i = 0; i < a.length; i++) {
     if (a[i].getAttribute('data-lang')) {
         split.pop();
         const currentLanguage = a[i].getAttribute('data-lang');
-        const replacedLink = ('/' + currentLanguage + '/' + split.join('/') + '/').replace(/\/\//g, '/');
+        const replacedLink = ('/' + split.join('/') + '/' + currentLanguage + '/').replace(/\/\//g, '/');
         a[i].setAttribute('href', replacedLink);
     } else {
       const href = a[i].getAttribute('href');

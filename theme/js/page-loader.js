@@ -33,8 +33,7 @@ for (let i = 0; i < a.length; i++) {
     // Remove empty strings from the array.
     split = split.filter(Boolean);
     if (a[i].getAttribute('data-lang')) {
-        split.shift();
-        console.log(split);
+        split.pop();
         const currentLanguage = a[i].getAttribute('data-lang');
         const replacedLink = ('/' + currentLanguage + '/' + split.join('/') + '/').replace(/\/\//g, '/');
         a[i].setAttribute('href', replacedLink);

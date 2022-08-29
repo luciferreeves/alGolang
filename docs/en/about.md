@@ -13,18 +13,22 @@ vestris natura urbem tandem.
 Vocato rebelles postquam. Sequor rari nostri monstraverat locis iterum caput
 fugit remorata ire: notum.
 
-    if (gpu) {
-        non_lifo_memory += botnet;
-        vgaTtl.ttl = leopard_spreadsheet;
-    }
-    var capsThird = gigoAnd * -4;
-    if (bitRuby) {
-        clipboard -= 1;
-        pram_wddm += markupHardware + 3 + optical.dslam_slashdot(tabletMbps,
-                pcPush, 5);
-    } else {
-        opticalOs = reader;
-    }
+```typescript
+class MyClass {
+  public static myValue: string;
+  constructor(init: string) {
+    this.myValue = init;
+  }
+}
+import fs = require("fs");
+module MyModule {
+  export interface MyInterface extends Other {
+    myProperty: any;
+  }
+}
+declare magicNumber number;
+myArray.forEach(() => { });
+```
 
 ## Rigidum Perseus avertere et tamque reiectura alta
 

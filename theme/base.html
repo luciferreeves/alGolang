@@ -10,6 +10,14 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/base16/github.min.css" integrity="sha512-+evfh0lCceddhK7IkrvCj9metOEXRt6QNKNMWXBNINkQyLrxLkjyu7ye/g7claDFWtZHSpgJAMR7zTjo++oDPQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
     <body>
+        {% if 'search' in config['plugins'] %}
+            <div class="search-box" id="search-box">
+                <div class="close" id="close">&times;</div>
+                <h1>Search results for: <span id="search-term"></span></h1>
+                <hr>
+                <div id="mkdocs-search-results"></div>
+            </div>
+        {% endif %}
         {%- block site_nav %}
             {%- if config.navigation|length>1 %}
             <nav>
@@ -19,14 +27,15 @@
                         <li><a href="{{ nav_item.url }}">{{ nav_item.title }}</a></li>
                     {% endfor %}
                     <!-- Search Bar -->
-                    <!-- <form action="search.html" method="get">
+                    <form id="search">
                         <input type="text" name="q" placeholder="Search" id="mkdocs-search-query" autocomplete="off">
                         <input type="submit" value="Search">
-                    </form> -->
+                    </form>
                 </ul>
             </nav>
             {% endif %}
         {%- endblock %}
+        
         <div class="main">
             {% if page and not page.is_homepage %}
             <div class="sidebar toc">
@@ -64,7 +73,10 @@
                 {% endfor %}</p>
             </div>
         {% endif %}
+        <script>var base_url = '{{ base_url }}';</script>
         <script src="{{ 'js/page-loader.js'|url }}"></script>
+        <script src="https://unpkg.com/lunr/lunr.js"></script>
+        <script src="{{ 'js/search.js'|url }}"></script>
         <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
     </body>

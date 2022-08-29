@@ -5,7 +5,6 @@ theme:
   custom_dir: 'theme'
   static_templates:
     - 404.html
-    - search.html
 meta:
   lang: 'en'
 languages:

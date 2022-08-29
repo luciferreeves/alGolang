@@ -22,10 +22,13 @@ for (let i = 0; i < languagesDiv.length; i++) {
 
 const a = document.querySelectorAll('a');
 for (let i = 0; i < a.length; i++) {
-    const split = page.split('/');
-    const root = split[0] + '/' + split[1] + '/' + split[2];
+    let split = page.split('/');
+    // Remove empty strings from the array.
+    split = split.filter(Boolean);
+    // Remove the language from the array.
+    split.pop();
     const href = a[i].getAttribute('href')
-    a[i].setAttribute('href', href.replace('/<l>', root));
+    a[i].setAttribute('href', href.replace('/<l>', '/' + split + '/' + lang));
 }
 
 const isLocaleLoaded = (cl) => {
